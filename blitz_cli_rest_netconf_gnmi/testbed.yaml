@@ -1,29 +1,29 @@
 devices:
-    N9Kv1:
+    N93108TC-FX:
         alias: uut
         connections:
             cli:
-                ip: 172.25.195.71
-                port: 9111
-                protocol: telnet
+                ip: 172.25.195.105
+                port: 22
+                protocol: ssh
             rest:
                 class: rest.connector.Rest
-                ip: 127.0.0.1 # mgmt ip
+                ip: 172.25.195.105
                 port: 80
                 credentials:
                     rest:
-                        username: <user>
-                        password: <pass>
+                        username: dnac
+                        password: C!sc0123
             netconf:
                 class: yang.connector.Netconf
-                ip: 127.0.0.1 # mgmt ip
+                ip: 172.25.195.105
                 port: 830
-                username: <user>
-                password: <pass>
+                username: dnac
+                password: C!sc0123
             gnmi:
                 class: yang.connector.Gnmi
                 protocol: gnmi
-                host: 127.0.0.1 # mgmt ip
+                host: 172.25.195.105
                 port: 50051
                 root_certificate: 'server-cert.pem'
                 private_key: ''
@@ -31,10 +31,10 @@ devices:
                 ssl_name_override: <ssl server>
         credentials:
             default:
-                username: <user>
-                password: <pass>
+                username: dnac
+                password: C!sc0123
             enable:
-                password: <pass>
+                password: '%ASK{}'
         custom:
             abstraction:
                 order: [os, platform]

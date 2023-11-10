@@ -1,0 +1,43 @@
+testbed: # Add device related variable key/values under "custom".
+    name: N93108TC-FX
+    custom:
+        datastore:
+            type: ''
+            lock: true
+            retry: 40
+        interface_name_1: 
+devices:
+    # WARNING: device name must match configured hostname
+    N93108TC-FX:
+        type: n9k
+        os: nxos
+        alias: uut2
+        credentials:
+            default:
+                username: dnac
+                password: C!sc0123
+        connections:
+            cli:
+                class: unicon.Unicon
+                protocol: ssh
+                ip: 172.26.169.105
+                port: 22
+            yang1:
+                class: yang.connector.Netconf
+                protocol: netconf
+                host: 172.26.169.105
+                port: 830
+                # set all these to False if you have SSH key issues
+                hostkey_verify: False
+                look_for_keys: False
+                allow_agent: True
+            # yang2:
+            #     class: yang.connector.Gnmi
+            #     protocol: gnmi
+            #     host: 172.26.169.105
+            #     port: 50051
+            #     root_certificate: ''
+            #     private_key: ''
+            #     certificate_chain: ''
+            #     ssl_name_override: ''
+

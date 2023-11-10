@@ -1,0 +1,43 @@
+testbed: # Add device related variable key/values under "custom".
+    name: ISR4451X
+    custom:
+        datastore: 
+            type: ''
+            lock: true
+            retry: 40
+        interface_name_1: GigabitEthernet0/0/1
+devices:
+    # WARNING: device name must match configured hostname
+    ISR4451X:
+        type: iosxe
+        os: iosxe
+        alias: uut
+        credentials:
+            default:
+                username: dnac
+                password: C!sc0123
+        connections:
+            cli:
+                class: unicon.Unicon
+                protocol: ssh
+                ip: 172.26.169.55
+                port: 22
+            yang1:
+                class: yang.connector.Netconf
+                protocol: netconf
+                host: 172.26.169.55
+                port: 830
+                # set all these to False if you have SSH key issues
+                hostkey_verify: False
+                look_for_keys: False
+                allow_agent: False
+            yang2:
+                class: yang.connector.Gnmi
+                protocol: gnmi
+                host: 172.26.169.55
+                port: 50052
+                #port: 9339
+                root_certificate: ''
+                private_key: ''
+                certificate_chain: ''
+                ssl_name_override: ''

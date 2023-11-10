@@ -24,7 +24,7 @@
 
 
 devices:
-  N9Kv1:
+  N93108TC-FX:
     mapping:
       cli: cli # use the cli connection for Cli commands
       rest: rest # use the rest connection for REST commands

@@ -2,7 +2,7 @@ data:
   configure: {}
   execute: {}
   variables:
-    interface_name_1: 'GigabitEthernet0/0'
+    interface_name_1: 'Ethernet1/11'
   yang:
     connection: netconf
     protocol: netconf
@@ -62,7 +62,7 @@ data:
         nodes:
         - nodetype: ''
           datatype: ''
-          xpath: '%{ data.yang.xpath.4 }'
+          xpath: '%{ data.yang.xpath.3 }'
       4:
         rpc: |
           <nc:rpc xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="urn:uuid:e2117597-03bb-48c5-9006-de94b1e9f4db">
@@ -72,7 +72,7 @@ data:
                   <intf-items>
                     <phys-items>
                       <PhysIf-list>
-                        <id>eth1/1</id>
+                        <id>eth1/11</id>
                           <phys-items>
                             <adminSt/>
                           </phys-items>
