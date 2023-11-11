@@ -89,7 +89,7 @@ nexus_openconfig_gnmi_fan_statistics_subscribe:
         operation: subscribe
         protocol: netconf
         datastore: '%{ testbed.testbed.custom.datastore }'
-        format: '%{ data.yang.format.1 }'
+        format: '%{ data.yang.format.4 }'
         content: '%{ data.yang.content.3 }'
         returns: '%{ data.yang.returns.4 }'
         banner: YANG SUBSCRIBE
@@ -97,27 +97,22 @@ nexus_openconfig_gnmi_fan_statistics_subscribe:
         device: uut2
         command: show run | sec hostname
 
-nexus_netconf_interface_state_subscribe:
+nexus_netconf_ospf_state_get:
   source:
     pkg: genie.libs.sdk
     class: triggers.blitz.blitz.Blitz
   test_sections:
   - verify_yang_return_1:
-    - configure:
-        device: uut2
-        command: |
-          int Eth1/11
-          shutdown
     - yang:
         device: uut2
         connection: netconf
-        operation: subscribe
-        protocol: netconf
+        operation: get
+        protocol: '%{ data.yang.protocol }'
         datastore: '%{ testbed.testbed.custom.datastore }'
         format: '%{ data.yang.format.1 }'
-        content: '%{ data.yang.content.4 }'
-        returns: '%{ data.yang.returns.5 }'
-        banner: YANG SUBSCRIBE
+        content: '%{ data.yang.content.6 }'
+        #returns: '%{ data.yang.returns.5 }'
+        banner: YANG GET
     - configure:
         device: uut2
         command: |

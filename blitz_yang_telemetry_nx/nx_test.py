@@ -8,8 +8,8 @@ from genie.harness.main import gRun
 
 def main():
     trigger_uids = [
-        'nexus_openconfig_gnmi_fan_statistics_subscribe',
-        'nexus_netconf_interface_state_subscribe',
+        #'nexus_openconfig_gnmi_fan_statistics_subscribe',
+        'nexus_netconf_ospf_state_get',
     ]
 
     gRun(trigger_uids=trigger_uids,

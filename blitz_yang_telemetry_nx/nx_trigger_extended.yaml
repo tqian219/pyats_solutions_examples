@@ -34,13 +34,16 @@ data:
       1:
         interfaces-ios-xe-oper: http://cisco.com/ns/yang/Cisco-IOS-XE-interfaces-oper
         openconfig-system: http://openconfig.net/yang/system
-        oc-platform: http://openconfig.net/yang/platform
         oc-fan: http://openconfig.net/yang/platform/fan
+        oc-platform: http://openconfig.net/yang/platform
+        nx-os-device: http://cisco.com/ns/yang/cisco-nx-os-device
+        
     xpath:
       1: /interfaces-ios-xe-oper:interfaces/interfaces-ios-xe-oper:interface[name="%{ data.variables.interface_name_1 }"]
       2: /openconfig-system:system/openconfig-system:state
       3: /oc-platform:components/oc-platform:component[oc-platform:name="Fan1/1"]/oc-platform:fan/oc-platform:state/oc-fan:speed
       4: /oc-platform:components/oc-platform:component[oc-platform:name="fan1/1"]/oc-platform:fan/oc-platform:state/oc-fan:speed
+      5: /nx-os-device:System/nx-os-device:ospf-items
     content:
       1:
         namespace: '%{ data.yang.namespace.1 }'
@@ -89,6 +92,12 @@ data:
         - nodetype: 'list'
           datatype: ''
           xpath: '%{ data.yang.xpath.1 }'
+      6:
+        namespace: '%{ data.yang.namespace.1 }'
+        nodes:
+        - nodetype: ''
+          datatype: ''
+          xpath: '%{ data.yang.xpath.5 }'
     returns:
       2:
       - datatype: uint16
